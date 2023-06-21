@@ -1,0 +1,65 @@
+@baseUrl = http://localhost:3000
+
+## Users
+
+### Create new user
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+
+{
+  "username": "cjsolis2",
+  "password": "Asdqwe123$"
+}
+
+### Sign in
+# @name signin
+POST {{baseUrl}}/auth/signin
+Content-Type: application/json
+
+{
+  "username": "cjsolis",
+  "password": "Asdqwe123$"
+}
+
+###
+@accessToken = {{signin.response.body.accessToken}}
+
+## Tasks
+### Get all tasks
+GET {{baseUrl}}/tasks
+Authorization: Bearer {{accessToken}}
+
+### Get all tasks by description
+GET {{baseUrl}}/tasks?title=Test
+Authorization: Bearer {{accessToken}}
+
+### Get all tasks by description
+GET {{baseUrl}}/tasks?description=Test3
+Authorization: Bearer {{accessToken}}
+
+### Create new task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "title": "Test ",
+  "description": "Test3"
+}
+
+### Update task status
+PATCH {{baseUrl}}/tasks/8f40ef40-e005-4ad2-b782-7aec9e8009f0
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "status": "IN_PROGRESS"
+}
+
+### Get task by Id
+GET {{baseUrl}}/tasks/cb4ee1ca-5d6d-4f0a-997b-db87851bb1b3
+Authorization: Bearer {{accessToken}}
+
+### Delete task
+DELETE {{baseUrl}}/tasks/cb4ee1ca-5d6d-4f0a-997b-db87851bb1b3
+Authorization: Bearer {{accessToken}}

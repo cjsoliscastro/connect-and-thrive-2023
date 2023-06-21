@@ -1,0 +1,77 @@
+@baseUrl = http://localhost:8000
+
+### Sign Up user
+POST {{baseUrl}}/api/admin/signup
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "Test",
+  "email": "test@test2.com",
+  "password": "Asdqwe123$",
+  "passwordConfirm": "Asdqwe123$"
+}
+
+### Sign In user
+POST {{baseUrl}}/api/admin/signin
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "Asdqwe123$"
+}
+
+### Sign Out user
+POST {{baseUrl}}/api/admin/signout
+
+### Get current user
+GET {{baseUrl}}/api/admin/user
+
+### Update current user
+PATCH {{baseUrl}}/api/admin/users/info
+Content-Type: application/json
+
+{
+  "email": "test@test.com"
+}
+
+### Update current user password
+PATCH {{baseUrl}}/api/admin/users/password
+Content-Type: application/json
+
+{
+  "previousPassword": "Asdqwe123123$",
+  "password": "Asdqwe123$",
+  "passwordConfirm": "Asdqwe123$"
+}
+
+### Get all ambassador users
+GET {{baseUrl}}/api/admin/ambassadors
+
+### Get all products
+GET {{baseUrl}}/api/admin/products
+
+### Creeate products
+POST {{baseUrl}}/api/admin/products
+Content-Type: application/json
+
+{
+  "title": "Coca Cola",
+  "description": "Coca Cola",
+  "image": "blob",
+  "price": "300"
+}
+
+### Update products
+PUT {{baseUrl}}/api/admin/products/427110e6-598a-4370-8a08-d1f430ceccb2
+Content-Type: application/json
+
+{
+  "title": "Coca Cola2",
+  "description": "Coca Cola2",
+  "image": "blob",
+  "price": "300"
+}
+
+### Delete products
+DELETE {{baseUrl}}/api/admin/products/427110e6-598a-4370-8a08-d1f430ceccb2

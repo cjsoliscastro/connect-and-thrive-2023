@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    command: [ "postgres", "-c", "log_min_messages=notice" ]
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: cjsolis
+      POSTGRES_DB: task-management
+      POSTGRES_PASSWORD: cjsolis
